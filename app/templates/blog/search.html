@@ -1,0 +1,8 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h1>Result:</h1>
+  {% for msg in message %}
+  <h2>{{ msg.title }}</h2>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,201 @@
+{% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<div id="id02" class="modal" >
+
+  <div class="phone-sign">
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container">
+
+      <div class="panel panel-primary">
+        <div class="panel-body">
+
+
+            <div class="form-group" style="width:100%;">
+              <label class="control-label" for="signupPasswordagain">電話號碼註冊</label>
+              <div class="row align-items-center h-40" >
+                <div class="col-md-3">
+                  <select class="custom-select" id="exampleSelect1">
+   <option>+852</option>
+   <option>+853</option>
+   <option>+86</option>
+ </select>
+                </div>
+                  <div class="col-md-8" style="margin-left:-20px;">
+                      <input id="signupPasswordagain" type="text" maxlength="25" class="form-control" placeholder="輸入你的電話號碼" style="background:#fff;">
+                  </div>
+            </div>
+            </div>
+            <div class="form-group" style="width:100%;margin-top:30px;">
+              <div class="row align-items-center h-40" >
+                <div class="col-md-2" style="margin-right:-50px;">
+                  <label class="control-label" for="signupPasswordagain">驗證碼</label>
+                </div>
+                  <div class="col-md-3">
+                      <input id="signupPasswordagain" type="text" maxlength="25" class="form-control" style="background:#fff;">
+                  </div>
+                  <div class="col-md-3">
+                    <button class="btn btn-success">發送驗證碼</label>
+                  </div>
+            </div>
+
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+            <div class="form-group">
+              <button id="signupSubmit" type="submit" class="btn btn-info btn-block ">下一步</button>
+            </div>
+            <div class="form-group ">
+              <div class="container">
+              <div class="row">
+                <div class="col-md-2">
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+            <div class="col-md-2" style="margin-left:20px;margin-right:-20px;">
+              <script>
+
+                window.fbAsyncInit = function() {
+
+                  FB.init({
+                    appId      : '1632310266837891',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v3.0'
+                  });
+                  FB.getLoginStatus(function(response) {
+
+                  statusChangeCallback(response);
+                  });
+
+                };
+
+                (function(d, s, id){
+
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) {return;}
+                   js = d.createElement(s); js.id = id;
+                   js.src = "https://connect.facebook.net/en_US/sdk.js";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));
+                function statusChangeCallback(response){
+
+                  if(response.status==='connected'){
+                    alert('csacpo');
+                  }
+                  else {
+                    alert('csacposs');
+                  }
+                }
+                function checkLoginState(){
+                  FB.getLoginStatus(
+                    function(response){
+                      statusChangeCallback(response);
+                    }
+                  );
+                }
+              </script>
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+              </fb:login-button>
+            </div>
+            <div class="col-md-1">
+          <img src="{% static 'image/mail.png' %}" style="width:26px;height:26px;"></div>
+        </div>
+          </div>
+            </div>
+
+
+        </div>
+
+    </div>
+  </div>
+  </form>
+  </div>
+
+
+
+
+  <div class="email-sign" style="display:none;">
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+
+						<div class="form-group">
+							<h2 style="text-align:center;">帳號注冊  </h2>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="signupName">用戶名稱</label>
+							<input id="signupName" type="text" maxlength="50" class="form-control">
+						</div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="signupPassword">Password</label>
+              <input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40">
+            </div>
+          </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="signupPasswordagain">Password again</label>
+              <input id="signupPasswordagain" type="password" maxlength="25" class="form-control">
+            </div>
+          </div>
+        </div>
+						<div class="form-group">
+							<label class="control-label" for="signupEmail">電郵</label>
+							<input id="signupEmail" type="email" maxlength="50" class="form-control">
+						</div>
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+              <label class="custom-control-label" for="customControlAutosizing"><p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p></label>
+            </div>
+
+						<div class="form-group">
+							<button id="signupSubmit" type="submit" class="btn btn-info btn-block">Create your account</button>
+						</div>
+
+
+						<hr>
+						<p></p>Already have an account? <a href="#">Sign in</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+  </form>
+</div>
+</div>
+
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+
+
+
+<script>
+
+// Get the modal
+var modalx = document.getElementById('id01');
+var modaly =document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modalx ) {
+        modalx.style.display = "none";
+    }
+    else if (event.target == modaly){
+        modaly.style.display = "none";
+    }
+}
+</script>

@@ -1,0 +1,374 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <meta name="google-signin-client_id" content="806150468926-gen3irjjabqpkvbqr8u6e9j0o6l9agpv.apps.googleusercontent.com">
+        <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
+
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cardslider.css' %}">
+        <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
+        <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
+        <script src="{% static 'autocomplete/jquery.easy-autocomplete.js' %}"></script>
+
+        <link rel="stylesheet" href="{% static 'css/navbarindex.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrapselect/dist/css/bootstrap-select.min.css' %}">
+        <script src="{% static 'css/bootstrapselect/dist/js/bootstrap-select.min.js' %}"></script>
+
+        <!--flex-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <!--flex-->
+    </head>
+<body>
+  <nav id="section-menu">
+  <ul>
+  </ul>
+</nav>
+  {% include 'blog/bar0.html' %}
+    {% include 'blog/login-modal.html' %}
+        {% include 'blog/signup-modal.html' %}
+<div class="container-fluid" id="framex">
+<section id="section-one" class="section scroll-item" title="Top">
+<div class="inner">
+
+  <div id="mainframe">
+  <div class=" container-fluid">
+  <div class="custom-container">
+  <div class="row no-gutter">
+    <div class="col-sm-3 "  >
+  <div class="content ">
+  <div class="rowx">
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-1-2.jpg' %}"/>
+    </div>
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-2-2.jpg' %}"/>
+    </div>
+  </div>
+  <div class="rowx">
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-3.jpg' %}"/>
+    </div>
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-4.jpg' %}"/>
+    </div>
+  </div>
+  <div class="rowx">
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-5.jpg' %}"/>
+    </div>
+    <div class="cell">
+      <img class="caticon" src="{% static 'image/4in1-6.jpg' %}"/>
+    </div>
+  </div>
+  </div>
+  </div>
+    <div class="col-8"  ><!--running horse start-->
+      <div id="carouselExampleIndicators" class="carousel slide artFrame" data-ride="carousel"  >
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 img-fluid" src="http://miriadna.com/desctopwalls/images/max/Milky-way.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 img-fluid" src="https://i.redditmedia.com/MC3jT1y2rqUdjSAgWntAfZjT7eVOjKOmwTIY_Bvdp5c.jpg?s=72f76c1fc2dfcbcef71a95562ccf9e26" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 img-fluid" src="http://selfrecruiter.com/wp-content/uploads/2015/07/automne-1920-1080.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+</div><!--running horse end-->
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="section-two" class="section scroll-item" title="Hot location">
+<div class="inner">
+<br>
+熱門地
+<hr>
+<!--hot ad-->
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-3"><img src="{% static 'image/hp1.png' %}" style="width 150px;height 150px"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'image/hp2.png' %}" style="width 150px;height 150px"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'image/hp3.png' %}" style="width 150px;height 150px"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'image/hp4.jpg' %}" style="width 150px;height 150px"></div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!--promotion-->
+<section id="section-three" class="section scroll-item" title="Recomandation">
+<div class="inner container-fluid">
+
+  <br>
+  推介
+  <hr>
+  <div class="slider slider-nav"style="max-height:250px; "><!--style="outline: none;max-height:10rem;"-->
+    <div><img src="{% static 'image/pro1.jpg' %}" style="width: 250px;height: 250px"></div>
+    <div><img src="{% static 'image/pro2.jpg' %}" style="width: 250px;height: 250px"></div>
+    <div><img src="{% static 'image/pro3.jpg' %}" style="width: 250px;height: 250px"></div>
+    <div><img src="{% static 'image/pro4.jpg' %}" style="width: 250px;height: 250px"></div>
+    <div><img src="{% static 'image/pro5.jpg' %}" style="width: 250px;height: 250px"></div>
+  </div>
+  <div class="slider slider-for" style="max-height:250px; "><!--style="outline: none;max-height:10rem;"-->
+    <div><h1>Stardust Dragon</h1>
+      <p>1 Tuner + 1 or more non-Tuner monsters</p>
+      <p>ATK / DEF	2500 / 2000</p>
+      <p>During either player's turn, when a card or effect is activated that would destroy a card(s) on the field: You can Tribute this card;</p>
+      <p>negate the activation, and if you do, destroy it. During the End Phase,</p>
+      <p>if this effect was activated this turn (and was not negated): </p>
+    </div>
+    <div><h1>Black Rose Dragon</h1>
+      <p>1 Tuner + 1 or more non-Tuner monsters</p>
+      <p>ATK / DEF	2400 / 1800</p>
+      <p>When this card is Synchro Summoned: You can destroy all cards on the field. Once per turn: </p>
+      <p>You can banish 1 Plant-Type monster from your Graveyard, then target 1 Defense Position monster your opponent controls; </p>
+    </div>
+    <div><h1>Ancient Fairy Dragon</h1>
+      <p>1 Tuner + 1+ non-Tuner monsters</p>
+      <p>ATK / DEF	2100 / 3000</p>
+      <p>Once per turn: You can Special Summon 1 Level 4 or lower monster from your hand.</p>
+      <p>You cannot conduct your Battle Phase the turn you activate this effect. </p>
+    </div>
+    <div><h1>Power Tool Dragon</h1>
+      <p>1 Tuner + 1 or more non-Tuner monsters</p>
+      <p>ATK / DEF	2300 / 2500</p>
+      <p>Once per turn: You can reveal 3 Equip Spell Cards from your Deck, then your opponent randomly adds 1 of them to your hand, and you shuffle the rest back into your Deck</p>
+      <p>If this card would be destroyed while equipped with an Equip Spell Card(s), you can send 1 of those cards to the Graveyard instead.</p>
+    </div>
+    <div><h1>Black Wing Dragon</h1>
+      <p>1 Tuner + 1 or more non-Tuner monsters</p>
+      <p>ATK / DEF	2800 / 1600</p>
+      <p>If you would take damage from a card effect, place 1 Black Feather Counter on this card instead. This card loses 700 ATK for each Black Feather Counter on it</p>
+      <p> Once per turn: You can remove all Black Feather Counters on this card, then target 1 face-up monster your opponent controls; that target loses 700 ATK for each Black Feather Counter you removed, and if it does, inflict damage to your opponent equal to the ATK lost by this effect.</p>
+    </div>
+  </div>
+<!--<div class="action" >
+    <a href="#" data-slide="3">go to slide 3</a>
+    <a href="#" data-slide="4">go to slide 4</a>
+    <a href="#" data-slide="5">go to slide 5</a>
+</div>-->
+
+</div>
+</section>
+
+<!--promotion end-->
+
+<section id="section-four" class="section scroll-item" title="Promos">
+<div class="inner">
+<br>
+優惠
+<hr>
+<!--flex item experiment-->
+<div class="d-flex bg-black" style="height:150px">
+<img src="{% static 'image/di1.jpg' %}"style="width: 600px;height: 300px;">
+  <div class="p-2 border">Flex item 3</div>
+</div>
+<!--flex item experiment-->
+<div class="container">
+  <div class="col"><img src="{% static 'image/di1.jpg' %}"style="width: 600px;height: 300px;"></div>
+  <div class="bg-light" >
+      <!--running horse start-->
+    <div class="p-2 border"  style="max-height:50px; ">
+      <div class="autoplay" style="max-height:50px; ">
+        <div><img src="{% static 'image/dis1.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis2.png' %}"style="width :50px;max-height :50px;"></div>
+        <div><img src="{% static 'image/dis3.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis4.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis5.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis6.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis7.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis8.png' %}"style="width: 50px;max-height: 50px;"></div>
+        <div><img src="{% static 'image/dis9.png' %}"style="width: 50px;max-height: 50px;"></div>
+      </div>
+    </div>
+
+    <!--running horse end-->
+
+    <div class="p-2 border"><img src="{% static 'image/di2.jpg' %}"style="width: 600px;height: 200px;"></div>
+    <div class="p-2 border"><img src="{% static 'image/di3.jpg' %}"style="width: 600px;height: 200px;"></div>
+  </div>
+</div>
+
+</div>
+</section>
+
+
+<section id="section-five" class="section scroll-item" title="Article">
+<div class="inner">
+<br>
+文章推介
+<hr>
+<!--passage1-->
+<div class="container py-3">
+  <div class="card">
+    <div class="row ">
+      <div class="col-md-4">
+          <img src="{% static 'image/passage1.jpg' %}" class="w-100">
+        </div>
+        <div class="col-md-8 px-3">
+          <div class="card-block px-3">
+            <h4 class="card-title">創 世 紀 Genesis</h4>
+            <p class="card-text"> 1:1	       起 初 　 神 創 造 天 地 。</p>
+            <p class="card-text"> 1:2        地 是 空 虛 混 沌 ． 淵 面 黑 暗 ． 　 神 的 靈 運 行 在 水 面 上 。</p>
+            <p class="card-text"> 1:3	  	　 神 說 、 要 有 光 、 就 有 了 光 。</p>
+            <p class="card-text"> 1:4	  	　 神 看 光 是 好 的 、 就 把 光 暗 分 開 了 。</p>
+            <p class="card-text"> 1:5	  	　 神 稱 光 為 晝 、 稱 暗 為 夜 ． 有 晚 上 、 有 早 晨 、 這 是 頭 一 日 。</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--passage1-->
+<!--passage2-->
+<div class="container py-3">
+  <div class="card">
+    <div class="row ">
+      <div class="col-md-4">
+          <img src="{% static 'image/passage2.jpg' %}" class="w-100">
+        </div>
+        <div class="col-md-8 px-3">
+          <div class="card-block px-3">
+            <h4 class="card-title">列 王 記 下 2 Kings</h4>
+            <p class="card-text">1:1	  	亞 哈 死 後 、 摩 押 背 叛 以 色 列 。</p>
+            <p class="card-text">1:2	  	亞 哈 謝 在 撒 瑪 利 亞 、 一 日 從 樓 上 的 欄 杆 裡 掉 下 來 、 就 病 了 ． 於 是 差 遣 使 者 說 、 你 們 去 問 以 革 倫 的 神 巴 力 西 卜 、 我 這 病 能 好 不 能 好 。</p>
+            <p class="card-text">1:3	  	但 耶 和 華 的 使 者 對 提 斯 比 人 以 利 亞 說 、 你 起 來 、 去 迎 著 撒 瑪 利 亞 王 的 使 者 、 對 他 們 說 、 你 們 去 問 以 革 倫 神 巴 力 西 卜 、 豈 因 以 色 列 中 沒 有 　 神 麼 。</p>
+            <p class="card-text">1:4	  	所 以 耶 和 華 如 此 說 、 你 必 不 下 你 所 上 的 床 、 必 定 要 死 ． 以 利 亞 就 去 了 。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--passage2-->
+<!--passage3-->
+<div class="container py-3">
+  <div class="card">
+    <div class="row ">
+      <div class="col-md-4">
+          <img src="{% static 'image/passage3.jpg' %}" class="w-100">
+        </div>
+        <div class="col-md-8 px-3">
+          <div class="card-block px-3">
+            <h4 class="card-title">瑪 拉 基 書 Malachi</h4>
+            <p class="card-text">1:1	  	耶 和 華 藉 瑪 拉 基 傳 給 以 色 列 的 默 示 。</p>
+            <p class="card-text">1:2	  	耶 和 華 說 、 我 曾 愛 你 們 ． 你 們 卻 說 、 你 在 何 事 上 愛 我 們 呢 ． 耶 和 華 說 、 以 掃 不 是 雅 各 的 哥 哥 麼 ． 我 卻 愛 雅 各 、</p>
+            <p class="card-text">1:3	  	惡 以 掃 、 使 他 的 山 嶺 荒 涼 、 把 他 的 地 業 交 給 曠 野 的 野 狗 。</p>
+            <p class="card-text">1:4	  	以 東 人 說 、 我 們 現 在 雖 被 毀 壞 、 卻 要 重 建 荒 廢 之 處 ． 萬 軍 之 耶 和 華 如 此 說 、 任 他 們 建 造 、 我 必 拆 毀 ． 人 必 稱 他 們 的 地 、 為 罪 惡 之 境 、 稱 他 們 的 民 、 為 耶 和 華 永 遠 惱 怒 之 民 。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--passage3-->
+<!--passage4-->
+<div class="container py-3">
+  <div class="card">
+    <div class="row ">
+      <div class="col-md-4">
+          <img src="{% static 'image/passage4.jpg' %}" class="w-100">
+        </div>
+        <div class="col-md-8 px-3">
+          <div class="card-block px-3">
+            <h4 class="card-title">提 摩 太 前 書 1 Timothy</h4>
+            <p class="card-text">1:1	  	奉 我 們 救 主 　 神 、 和 我 們 的 盼 望 基 督 耶 穌 之 命 、 作 基 督 耶 穌 使 徒 的 保 羅 、</p>
+            <p class="card-text">1:2	  	寫 信 給 那 因 信 主 作 我 真 兒 子 的 提 摩 太 ． 願 恩 惠 憐 憫 平 安 、 從 父 　 神 和 我 們 主 基 督 耶 穌 、 歸 與 你 。</p>
+            <p class="card-text">1:3	  	我 往 馬 其 頓 去 的 時 候 、 曾 勸 你 仍 住 在 以 弗 所 、 好 囑 咐 那 幾 個 人 、 不 可 傳 異 教 、</p>
+            <p class="card-text">1:4	  	也 不 可 聽 從 荒 渺 無 憑 的 話 語 、 和 無 窮 的 家 譜 ． 這 等 事 只 生 辯 論 、 並 不 發 明 　 神 在 信 上 所 立 的 章 程 。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--passage4-->
+
+
+</div>
+</section>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+   var h=$('.content').height();
+  $('.carousel-item > img').css('height',h-4+'px');    //and setting height of carousel
+  h = $(".carousel-item > img").height();
+
+});
+$('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  focusOnSelect: true
+});
+
+$('a[data-slide]').click(function(e) {
+  e.preventDefault();
+  var slideno = $(this).data('slide');
+  $('.slider-nav').slick('slickGoTo', slideno - 1);
+});
+</script>
+
+
+
+<script>
+//contol of autoplay in discount
+$('.autoplay').slick({
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5,
+});
+</script>
+</div>
+
+</body>
+</html>

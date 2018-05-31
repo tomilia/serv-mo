@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=Anton|Fjalla+One|Karla');
+.carousel-item img{
+height:512px;
+}
+
+ .middle {
+    order: 2;
+    display: flex;
+    overflow:hidden;
+    flex-wrap: wrap;
+
+
+ }
+ .main {
+  font-family:Arial;
+  width:500px;
+  display:block;
+  margin:0 auto;
+}
+h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 25px;
+    max-height: 10rem;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+}
+.action{
+  display:block;
+  margin:100px auto;
+  width:100%;
+  text-align:center;
+}
+.action a {
+  display:inline-block;
+  padding:5px 10px;
+  background:#f30;
+  color:#fff;
+  text-decoration:none;
+}
+.action a:hover{
+  background:#000;
+}
+.slick-prev:before,
+.slick-next:before{
+  color:black;
+}
+ .artFrame {
+   flex: 1;
+     border-radius: 2px;
+     top: 0;
+ left: 0;
+ border-color:#aaaaaa;
+ border-style: solid;
+   border-width: 2px;
+}
+
+ .middle-constrained {
+    flex-basis: 30%;
+    order: 2;
+    display: flex;
+    align-content: stretch;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin-left:auto;
+    margin-right:auto;
+ }
+
+ .row {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display:         flex;
+   flex-wrap: wrap;
+ }
+ .row > [class*='col-'] {
+   display: flex;
+   flex-direction: column;
+ }
+ .caticon{
+   border-radius: 2%;
+ }
+ .parentOver {
+     position: relative;
+  top: 0;
+  left: 0;
+
+ }

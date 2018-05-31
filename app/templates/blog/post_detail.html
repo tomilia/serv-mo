@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="date">
+        {% if post.published_date %}
+            {{ post.published_date }}
+        {% endif %}
+    </div>
+                <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text }}</p>
+    <p>{{ post.thumb }}</p>
+    <script type="text/javascript">
+    if(!localStorage.getItem('session'))
+    {
+      var a = [];
+      a.push(JSON.parse(localStorage.getItem('session')));
+      localStorage.setItem('session', JSON.stringify(a));
+    }
+    function SaveDataToLocalStorage(data)
+    {
+
+        var a = [];
+        var x=[];
+        // Parse the serialized data back into an aray of objects
+        a = JSON.parse(localStorage.getItem('session'));
+        // Push the new data (whether it be an object or anything else) onto the array
+        a.forEach(function(element) {
+          if(element==data)
+            {
+              var index = a.indexOf(data);
+              if (index !== -1) a.splice(index, 1);
+            }
+
+});
+        a.push(data);
+
+        // Alert the array value
+         // Should be something like [Object array]
+        // Re-serialize the array back into a string and store it in localStorage
+        localStorage.setItem('session', JSON.stringify(a));
+          document.write("History: " + a+ " time(s).");
+    }
+
+    SaveDataToLocalStorage('{{post.id}}');
+
+
+    </script>
+{% endblock %}

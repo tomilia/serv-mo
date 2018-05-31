@@ -1,0 +1,92 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/navbarindex.css' %}">
+<nav class="navbar navbar-expand-lg" style="  background: #fff !important;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse container">
+    <select class="selectpicker" data-width="fit">
+        <option data-content='<i class="fa fa-globe" aria-hidden="true"></i> 繁體中文'>繁體中文</option>
+      <option  data-content='<i class="fa fa-globe" aria-hidden="true"></i> English'>English</option>
+    </select>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a onclick="document.getElementById('id01').style.display='block'" >登入</a>
+      </li>
+      <li class="nav-item">
+        <a onclick="document.getElementById('id02').style.display='block'">註冊</a>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<nav class="navbar navbar-expand-lg" id="navbax"  style="padding-top:0px;padding-bottom:10px;  background: #fff !important;">
+  <a class="navbar-brand" href="#">
+   <img src="{% static 'image/icon.png' %}" alt="Logo" style="width:40px;">
+ </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto order-0 order-md-1">
+
+      <li class="mx-auto">
+      <div class="input-group ">
+      <input type="text" class="form-control home-search" id="example-ajax-post" aria-label="Text input with dropdown button" style="background-color:#eeeeee;">
+      <script type="text/javascript">
+            var options = {
+
+              url: function(phrase) {
+                return "/search/";
+              },
+
+              ajaxSettings: {
+                dataType: "json",
+                method: "POST",
+                data: {
+                  dataType: "json"
+                }
+              },
+
+              preparePostData: function(data) {
+                data.phrase = $("#example-ajax-post").val();
+                data.csrfmiddlewaretoken = '{{csrf_token}}'
+                return data;
+              },
+              listLocation:"message",
+              getValue: "title",
+              template: {
+                type: "description",
+                fields: {
+                  description: "author"
+                }
+              },
+              list: {
+                    onClickEvent: function() {
+                         alert("Click !");
+                         }
+                    },
+            };
+
+
+            $("#example-ajax-post").easyAutocomplete(options);
+      </script>
+
+      <div class="input-group-append">
+        <button class="btn " type="button"  style="background-color:#77d4cf; color:#eeeeee;"><i class="fa fa-search" aria-hidden="true"></i>
+        搜尋</button>
+      </div>
+    </div>
+
+  </li>
+    </ul>
+
+  </div>
+</nav>

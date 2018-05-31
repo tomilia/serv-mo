@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <script src="{% static 'autocomplete/jquery.easy-autocomplete.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
+        <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
+    </head>
+    <body>
+      <div class="page-header">
+
+          <h1><a href="/">Da Blog</a></h1>
+
+          <form class='site-form' action="/search/" method='get' id="my_form">
+            <input id="example-ajax-post" type="text" name="q" />
+          </form>
+          <script type="text/javascript">
+
+                var options = {
+
+                  url: function(phrase) {
+                    return "/search/";
+                  },
+
+                  ajaxSettings: {
+                    dataType: "json",
+                    method: "POST",
+                    data: {
+                      dataType: "json"
+                    }
+                  },
+
+                  preparePostData: function(data) {
+                    data.phrase = $("#example-ajax-post").val();
+                    data.csrfmiddlewaretoken = '{{csrf_token}}'
+                    return data;
+                  },
+                  listLocation:"message",
+                  getValue: "title",
+                  template: {
+                    type: "description",
+                    fields: {
+                      description: "author"
+                    }
+                  },
+                  list: {
+		                    onClickEvent: function() {
+			                       alert("Click !");
+		                         }
+	                      },
+                        theme: "round"
+                };
+
+                $("#example-ajax-post").easyAutocomplete(options);
+          </script>
+          <a href="{% url 'post_ack' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          <button id="history"><span class="glyphicon glyphicon-asterisk"></span></button>
+          {% if user.is_authenticated %}
+
+          <a href="{% url 'logout' %}" class="top-menu"><span class="glyphicon glyphicon-minus"></span></a>
+          {% else %}
+          <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>
+          <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-heart  "></span></a>
+          {% endif %}
+      </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+
+            {% for post in posts %}
+    <div class="post">
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="{% url 'post' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+              {% endfor %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+  $('#history').click(function(){
+    alert(localStorage.getItem('session'));
+  })
+</script>
+</html>
