@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'app.User'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -121,6 +119,10 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+
+AUTH_USER_MODEL = 'app.CustomUser'
+
+AUTHENTICATION_BACKENDS=('app.auth.Auth',)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
