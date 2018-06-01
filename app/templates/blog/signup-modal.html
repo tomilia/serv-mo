@@ -3,38 +3,38 @@
 <div id="id02" class="modal" >
 
   <div class="phone-sign">
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" id="reg">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <button onclick="document.getElementById('id02').style.display='none';" class="close" type="reset" value="reset" title="Close Modal">&times;</span>
     </div>
+    <div class="front-step">
     <div class="container">
 
       <div class="panel panel-primary">
         <div class="panel-body">
 
 
-            <div class="form-group" style="width:100%;">
+            <div class="form-group">
               <label class="control-label" for="signupPasswordagain">電話號碼註冊</label>
               <div class="row align-items-center h-40" >
                 <div class="col-md-3">
-                  <select class="custom-select" id="exampleSelect1">
-   <option>+852</option>
-   <option>+853</option>
-   <option>+86</option>
- </select>
+                  <select class="custom-select" name="ccode" id="exampleSelect1">
+                      <option value=852>+852</option>
+                      <option value=853>+853</option>
+                      <option value=86>+86</option>
+                    </select>
                 </div>
                   <div class="col-md-8" style="margin-left:-20px;">
-                      <input id="signupPasswordagain" type="text" maxlength="25" class="form-control" placeholder="輸入你的電話號碼" style="background:#fff;">
+                      <input id="signupPasswordagain" name="tel" type="text" maxlength="25" class="form-control" placeholder="輸入你的電話號碼" style="background:#fff;">
                   </div>
             </div>
             </div>
-            <div class="form-group" style="width:100%;margin-top:30px;">
+            <div class="form-group" style="margin-top:30px;">
+                <label class="control-label" for="signupPasswordagain">驗證碼</label>
               <div class="row align-items-center h-40" >
-                <div class="col-md-2" style="margin-right:-50px;">
-                  <label class="control-label" for="signupPasswordagain">驗證碼</label>
-                </div>
+
                   <div class="col-md-3">
-                      <input id="signupPasswordagain" type="text" maxlength="25" class="form-control" style="background:#fff;">
+                      <input id="vericode" type="text" maxlength="3" name="verify" class="form-control" style="background:#fff;">
                   </div>
                   <div class="col-md-3">
                     <button class="btn btn-success">發送驗證碼</label>
@@ -44,75 +44,80 @@
             </div>
             </div>
           </div>
-        </div>
+          <div class="form-group">
+            <button id="signupNextStep" type="button" class="btn btn-info btn-block process" style="margin-top:30px;" onclick="">下一步</button>
+            <script>
+          $('#vericode').on('input',function() {
+            if($('#vericode').val().length==3)
+            {
+              $('.process').prop('disabled', false);
+            }
+            else {
+                $('.process').prop('disabled', true);
+            }
+});
 
+            $('.process').prop('disabled', true);
 
-            <div class="form-group">
-              <button id="signupSubmit" type="submit" class="btn btn-info btn-block ">下一步</button>
-            </div>
-            <div class="form-group ">
-              <div class="container">
-              <div class="row">
-                <div class="col-md-2">
-              <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </div>
-            <div class="col-md-2" style="margin-left:20px;margin-right:-20px;">
-              <script>
-
-                window.fbAsyncInit = function() {
-
-                  FB.init({
-                    appId      : '1632310266837891',
-                    cookie     : true,
-                    xfbml      : true,
-                    version    : 'v3.0'
-                  });
-                  FB.getLoginStatus(function(response) {
-
-                  statusChangeCallback(response);
-                  });
-
-                };
-
-                (function(d, s, id){
-
-                   var js, fjs = d.getElementsByTagName(s)[0];
-                   if (d.getElementById(id)) {return;}
-                   js = d.createElement(s); js.id = id;
-                   js.src = "https://connect.facebook.net/en_US/sdk.js";
-                   fjs.parentNode.insertBefore(js, fjs);
-                 }(document, 'script', 'facebook-jssdk'));
-                function statusChangeCallback(response){
-
-                  if(response.status==='connected'){
-                    alert('csacpo');
-                  }
-                  else {
-                    alert('csacposs');
-                  }
-                }
-                function checkLoginState(){
-                  FB.getLoginStatus(
-                    function(response){
-                      statusChangeCallback(response);
-                    }
-                  );
-                }
-              </script>
-              <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-              </fb:login-button>
-            </div>
-            <div class="col-md-1">
-          <img src="{% static 'image/mail.png' %}" style="width:26px;height:26px;"></div>
-        </div>
+            </script>
           </div>
-            </div>
-
-
+          <hr/>
+          {% include 'blog/social-sign.html' %}
         </div>
 
+</div>
+    <div class="back-step" style="display:none;">
+      <div class="container">
+
+        <div class="panel panel-primary">
+          <div class="panel-body">
+
+            <div class="container">
+
+                <!--checkpoint-->
+                <div class="form-group">
+                  <div class="form-group">
+                    <h2 style="text-align:center;">請輸入密碼  </h2>
+                  </div>
+                <div class="form-group">
+                  <label class="control-label" for="signupPassword">密碼</label>
+                  <input id="signupPassword" type="password" name="pw" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40">
+                </div>
+
+
+                <div class="form-group">
+                  <label class="control-label" for="signupPasswordagain">確認密碼</label>
+                  <input id="signupPasswordagain" type="password" name='confirmpw' maxlength="25" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button id="signupSubmit" type="button" class="btn btn-danger btn-block process" style="margin-top:30px;" onclick="me()">登記</button>
+                  <script>
+
+
+                  </script>
+                </div>
+              </div>
+            </div>
+
+              </div>
+            </div>
+
+            <script>
+
+          function me(){
+            console.log($('#reg').serialize());
+          }
+            //success verification
+              $('#signupNextStep').click(function(){
+                $('.front-step').css('display','none');
+                $('.back-step').css('display','block');
+              });
+            </script>
+
+          </div>
     </div>
-  </div>
+
+
   </form>
   </div>
 
@@ -128,7 +133,7 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-
+          <div class="container">
 						<div class="form-group">
 							<h2 style="text-align:center;">帳號注冊  </h2>
 						</div>
@@ -139,13 +144,13 @@
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-              <label class="control-label" for="signupPassword">Password</label>
-              <input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40">
+              <label class="control-label" for="signupPassword">密碼</label>
+              <input id="signupPassword" type="password" maxlength="25" class="form-control" length="40">
             </div>
           </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-              <label class="control-label" for="signupPasswordagain">Password again</label>
+              <label class="control-label" for="signupPasswordagain">確認密碼</label>
               <input id="signupPasswordagain" type="password" maxlength="25" class="form-control">
             </div>
           </div>
@@ -166,6 +171,7 @@
 
 						<hr>
 						<p></p>Already have an account? <a href="#">Sign in</a></p>
+          </div>
 				</div>
 			</div>
 		</div>
@@ -185,13 +191,17 @@
 
 
 <script>
-
+function changemail(){
+  $('.phone-sign').css('display','none');
+  $('.email-sign').css('display','block');
+}
 // Get the modal
 var modalx = document.getElementById('id01');
 var modaly =document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modalx ) {
+
         modalx.style.display = "none";
     }
     else if (event.target == modaly){

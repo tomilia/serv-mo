@@ -11,6 +11,7 @@ urlpatterns = [
 #        url(r'^login/$',views.login_view,name='login'),
 #        url(r'^logout/$',views.logout_view,name='logout'),
 #        url(r'^search/$',views.ajax,name='search'),
-       url(r'^index0/$',views.index0,name='index0'),
+        url(r'^index0/$',views.index0,name='index0'),
+        url(r'^search0/$',views.search0,name='search0'),
 
 ]

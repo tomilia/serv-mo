@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse container">
-    <select class="selectpicker" data-width="fit">
+    <select data-width="fit">
         <option data-content='<i class="fa fa-globe" aria-hidden="true"></i> 繁體中文'>繁體中文</option>
       <option  data-content='<i class="fa fa-globe" aria-hidden="true"></i> English'>English</option>
     </select>
@@ -15,7 +15,7 @@
         <a onclick="document.getElementById('id01').style.display='block'" >登入</a>
       </li>
       <li class="nav-item">
-        <a onclick="document.getElementById('id02').style.display='block'">註冊</a>
+        <a onclick="reg()">註冊</a>
       </li>
 
 
@@ -89,4 +89,15 @@
     </ul>
 
   </div>
+  <script>
+  function reg(){
+
+  document.getElementById('id02').style.display='block';
+  $('.back-step').css('display','none');
+    $('.front-step').css('display','block');
+  $('.phone-sign').css('display','block');
+  $('.email-sign').css('display','none');
+
+}
+  </script>
 </nav>

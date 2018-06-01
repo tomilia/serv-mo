@@ -1,17 +1,62 @@
 {% load staticfiles %}
+<style>
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+</style>
   <link rel="stylesheet" href="{% static 'css/modal.css' %}">
 <div id="id01" class="modal">
-
   <form class="modal-content animate" action="/login/" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
+
       {% csrf_token %}
+      <div class="container">
+  		<div class="row">
+        <div class="col-md-10 col-centered">
+  			<div class="panel panel-primary">
+  				<div class="panel-body">
+
+  						<div class="form-group">
+  							<h2 style="text-align:center;">帳號登入  </h2>
+  						</div>
+  						<div class="form-group">
+  							<label class="control-label" for="signupName">用戶名稱</label>
+  							<input id="signupName" type="text" maxlength="50" class="form-control">
+  						</div>
+
+              <div class="form-group">
+                <label class="control-label" for="signupPassword">密碼</label>
+                <input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40">
+              </div>
+
+
+  						<div class="form-group">
+  							<button id="signupSubmit" type="submit" class="btn btn-info btn-block">登入</button>
+  						</div>
+
+
+  						<hr/>
+  						<p></p>
+
+                <h6 >其他登入方式</h6>
+                {% include 'blog/social-sign.html' %}
+                <script>
+                  $('.emailsign').css('display','none');
+                </script>
+  				</div>
+  			</div>
+      </div>
+  		</div>
+  	</div>
       <!--{{form.as_p}}-->
+
       {% if request.GET.next %}
         <input type='hidden' name='next' value="{{request.GET.next}}"/>
       {% endif %}
-      <input type='submit' value='Login'/>
   </form>
 </div>
 <script>

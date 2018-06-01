@@ -15,10 +15,11 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
         <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
         <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
 
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/card.css' %}">
         <link rel="stylesheet" href="{% static 'css/cardslider.css' %}">
         <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
         <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
@@ -28,20 +29,11 @@
         <link rel="stylesheet" href="{% static 'css/bootstrapselect/dist/css/bootstrap-select.min.css' %}">
         <script src="{% static 'css/bootstrapselect/dist/js/bootstrap-select.min.js' %}"></script>
 
-        <!--flex-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <!--flex-->
+
+        <link rel="stylesheet" href="{% static 'bar-rating/dist/themes/bars_reversed.css' %}">
+
     </head>
 <body>
-  <nav id="section-menu">
-  <ul>
-  </ul>
-</nav>
   {% include 'blog/bar0.html' %}
     {% include 'blog/login-modal.html' %}
         {% include 'blog/signup-modal.html' %}
@@ -142,45 +134,212 @@
   <br>
   推介
   <hr>
-  <div class="slider slider-nav"style="max-height:250px; "><!--style="outline: none;max-height:10rem;"-->
-    <div><img src="{% static 'image/pro1.jpg' %}" style="width: 250px;height: 250px"></div>
+  <div class="slider slider-nav" style="height:400px;"><!--style="outline: none;max-height:10rem;"-->
+    <div>
+      <div class="card">
+        <a class="img-card" ><img src="{% static 'image/pro2.jpg' %}" /></a>
+        <div class="card-content">
+            <div class="card-title">
+                <a>推拿保健按摩中心</a>
+            </div>
+            <div class="d-flex flex-row">
+              <div class="p-2" style="margin-top:2px;font-size:19px;"><img src="{% static 'image/point.png' %}" align="left" style="height:25px;width:25px;"/>南山區
+              <br/>
+              <div style="font-size:15px;">人均消費: $100-201</div>
+            </div>
+              <div class="p-1" style="margin-top:2.5px;margin-left:3px;font-weight:100;font-size:14px;line-height:1.25;"><div>服務</div><div>環境</div><div >價錢</div></div>
+              <div class="p-2" style="margin-left:-8;">  <div class="br-wrapper br-theme-bars-reversed">
+                  <div class="first">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="second">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="third">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div></div>
+            </div>
+        </div>
+        <div class="card-read-more">
+            <a href="http://www.google.com" class="btn btn-link btn-block">
+                Read More
+            </a>
+        </div>
+      </div>
+    </div><div>
+      <div class="card">
+        <a class="img-card" ><img src="{% static 'image/pro1.jpg' %}" /></a>
+        <div class="card-content">
+            <div class="card-title">
+                <a>推拿保健按摩中心</a>
+            </div>
+            <div class="d-flex flex-row">
+              <div class="p-2" style="margin-top:2px;font-size:19px;"><img src="{% static 'image/point.png' %}" align="left" style="height:25px;width:25px;"/>南山區
+              <br/>
+              <div style="font-size:15px;">人均消費: $100-201</div>
+            </div>
+              <div class="p-1" style="margin-top:2.5px;margin-left:3px;font-weight:100;font-size:14px;line-height:1.25;"><div>服務</div><div>環境</div><div >價錢</div></div>
+              <div class="p-2" style="margin-left:-8;">  <div class="br-wrapper br-theme-bars-reversed">
+                  <div class="first">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="second">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="third">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div></div>
+            </div>
+        </div>
+        <div class="card-read-more">
+            <a href="http://www.google.com" class="btn btn-link btn-block">
+                Read More
+            </a>
+        </div>
+      </div>
+    </div><div>
+      <div class="card">
+        <a class="img-card" ><img src="{% static 'image/pro4.jpg' %}" /></a>
+        <div class="card-content">
+            <div class="card-title">
+                <a>推拿保健按摩中心</a>
+            </div>
+            <div class="d-flex flex-row">
+              <div class="p-2" style="margin-top:2px;font-size:19px;"><img src="{% static 'image/point.png' %}" align="left" style="height:25px;width:25px;"/>南山區
+              <br/>
+              <div style="font-size:15px;">人均消費: $100-201</div>
+            </div>
+              <div class="p-1" style="margin-top:2.5px;margin-left:3px;font-weight:100;font-size:14px;line-height:1.25;"><div>服務</div><div>環境</div><div >價錢</div></div>
+              <div class="p-2" style="margin-left:-8;">  <div class="br-wrapper br-theme-bars-reversed">
+                  <div class="first">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="second">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="third">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div></div>
+            </div>
+        </div>
+        <div class="card-read-more">
+            <a href="http://www.google.com" class="btn btn-link btn-block">
+                Read More
+            </a>
+        </div>
+      </div>
+    </div><div>
+      <div class="card">
+        <a class="img-card" ><img src="{% static 'image/pro3.jpg' %}" /></a>
+        <div class="card-content">
+            <div class="card-title">
+                <a>推拿保健按摩中心</a>
+            </div>
+            <div class="d-flex flex-row">
+              <div class="p-2" style="margin-top:2px;font-size:19px;"><img src="{% static 'image/point.png' %}" align="left" style="height:25px;width:25px;"/>南山區
+              <br/>
+              <div style="font-size:15px;">人均消費: $100-201</div>
+            </div>
+              <div class="p-1" style="margin-top:2.5px;margin-left:3px;font-weight:100;font-size:14px;line-height:1.25;"><div>服務</div><div>環境</div><div >價錢</div></div>
+              <div class="p-2" style="margin-left:-8;">  <div class="br-wrapper br-theme-bars-reversed">
+                  <div class="first">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="second">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="third">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div></div>
+            </div>
+        </div>
+        <div class="card-read-more">
+            <a href="http://www.google.com" class="btn btn-link btn-block">
+                Read More
+            </a>
+        </div>
+      </div>
+    </div>
     <div><img src="{% static 'image/pro2.jpg' %}" style="width: 250px;height: 250px"></div>
     <div><img src="{% static 'image/pro3.jpg' %}" style="width: 250px;height: 250px"></div>
     <div><img src="{% static 'image/pro4.jpg' %}" style="width: 250px;height: 250px"></div>
     <div><img src="{% static 'image/pro5.jpg' %}" style="width: 250px;height: 250px"></div>
-  </div>
-  <div class="slider slider-for" style="max-height:250px; "><!--style="outline: none;max-height:10rem;"-->
-    <div><h1>Stardust Dragon</h1>
-      <p>1 Tuner + 1 or more non-Tuner monsters</p>
-      <p>ATK / DEF	2500 / 2000</p>
-      <p>During either player's turn, when a card or effect is activated that would destroy a card(s) on the field: You can Tribute this card;</p>
-      <p>negate the activation, and if you do, destroy it. During the End Phase,</p>
-      <p>if this effect was activated this turn (and was not negated): </p>
-    </div>
-    <div><h1>Black Rose Dragon</h1>
-      <p>1 Tuner + 1 or more non-Tuner monsters</p>
-      <p>ATK / DEF	2400 / 1800</p>
-      <p>When this card is Synchro Summoned: You can destroy all cards on the field. Once per turn: </p>
-      <p>You can banish 1 Plant-Type monster from your Graveyard, then target 1 Defense Position monster your opponent controls; </p>
-    </div>
-    <div><h1>Ancient Fairy Dragon</h1>
-      <p>1 Tuner + 1+ non-Tuner monsters</p>
-      <p>ATK / DEF	2100 / 3000</p>
-      <p>Once per turn: You can Special Summon 1 Level 4 or lower monster from your hand.</p>
-      <p>You cannot conduct your Battle Phase the turn you activate this effect. </p>
-    </div>
-    <div><h1>Power Tool Dragon</h1>
-      <p>1 Tuner + 1 or more non-Tuner monsters</p>
-      <p>ATK / DEF	2300 / 2500</p>
-      <p>Once per turn: You can reveal 3 Equip Spell Cards from your Deck, then your opponent randomly adds 1 of them to your hand, and you shuffle the rest back into your Deck</p>
-      <p>If this card would be destroyed while equipped with an Equip Spell Card(s), you can send 1 of those cards to the Graveyard instead.</p>
-    </div>
-    <div><h1>Black Wing Dragon</h1>
-      <p>1 Tuner + 1 or more non-Tuner monsters</p>
-      <p>ATK / DEF	2800 / 1600</p>
-      <p>If you would take damage from a card effect, place 1 Black Feather Counter on this card instead. This card loses 700 ATK for each Black Feather Counter on it</p>
-      <p> Once per turn: You can remove all Black Feather Counters on this card, then target 1 face-up monster your opponent controls; that target loses 700 ATK for each Black Feather Counter you removed, and if it does, inflict damage to your opponent equal to the ATK lost by this effect.</p>
-    </div>
   </div>
 <!--<div class="action" >
     <a href="#" data-slide="3">go to slide 3</a>
@@ -199,34 +358,37 @@
 優惠
 <hr>
 <!--flex item experiment-->
-<div class="d-flex bg-black" style="height:150px">
-<img src="{% static 'image/di1.jpg' %}"style="width: 600px;height: 300px;">
-  <div class="p-2 border">Flex item 3</div>
-</div>
+<!--div style="backgroud-colour:lightblue;height:150px;"-->
+
 <!--flex item experiment-->
 <div class="container">
-  <div class="col"><img src="{% static 'image/di1.jpg' %}"style="width: 600px;height: 300px;"></div>
-  <div class="bg-light" >
-      <!--running horse start-->
-    <div class="p-2 border"  style="max-height:50px; ">
-      <div class="autoplay" style="max-height:50px; ">
-        <div><img src="{% static 'image/dis1.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis2.png' %}"style="width :50px;max-height :50px;"></div>
-        <div><img src="{% static 'image/dis3.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis4.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis5.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis6.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis7.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis8.png' %}"style="width: 50px;max-height: 50px;"></div>
-        <div><img src="{% static 'image/dis9.png' %}"style="width: 50px;max-height: 50px;"></div>
-      </div>
-    </div>
+  <div class="row">
+   <div class="col">
+          <div class="bg-primary"><img src="{% static 'image/di1.jpg' %}"style="width: 600px;height: 200px;"></div><br>
+          <!--running horse start-->
+          <div class="autoplay" style="max-height:50px;max-width:500px;">
+            <div><img src="{% static 'image/dis1.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis2.png' %}"style="width :50px;max-height :50px;"></div>
+            <div><img src="{% static 'image/dis3.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis4.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis5.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis6.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis7.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis8.png' %}"style="width: 50px;max-height: 50px;"></div>
+            <div><img src="{% static 'image/dis9.png' %}"style="width: 50px;max-height: 50px;"></div>
+          </div>
+        <!--running horse end-->
+   </div>
+   <div class="col">
+     <div class="bg-secondary"><img src="{% static 'image/di2.jpg' %}"style="width: 600px;height: 150px;"></div>
+     <div class="bg-warning"><img src="{% static 'image/di3.jpg' %}"style="width: 600px;height: 150px;"></div>
+   </div>
+ </div>
 
-    <!--running horse end-->
 
-    <div class="p-2 border"><img src="{% static 'image/di2.jpg' %}"style="width: 600px;height: 200px;"></div>
-    <div class="p-2 border"><img src="{% static 'image/di3.jpg' %}"style="width: 600px;height: 200px;"></div>
-  </div>
+
+
+
 </div>
 
 </div>
@@ -238,10 +400,11 @@
 <br>
 文章推介
 <hr>
+<div class="row"><div class="col">
 <!--passage1-->
-<div class="container py-3">
+<div class="container">
   <div class="card">
-    <div class="row ">
+    <div class="row">
       <div class="col-md-4">
           <img src="{% static 'image/passage1.jpg' %}" class="w-100">
         </div>
@@ -253,14 +416,14 @@
             <p class="card-text"> 1:3	  	　 神 說 、 要 有 光 、 就 有 了 光 。</p>
             <p class="card-text"> 1:4	  	　 神 看 光 是 好 的 、 就 把 光 暗 分 開 了 。</p>
             <p class="card-text"> 1:5	  	　 神 稱 光 為 晝 、 稱 暗 為 夜 ． 有 晚 上 、 有 早 晨 、 這 是 頭 一 日 。</p>
-
           </div>
         </div>
       </div>
     </div>
-</div>
+</div></div>
 <!--passage1-->
 <!--passage2-->
+<div class="col">
 <div class="container py-3">
   <div class="card">
     <div class="row ">
@@ -278,9 +441,10 @@
         </div>
       </div>
     </div>
-</div>
+</div></div>
 <!--passage2-->
 <!--passage3-->
+<div class="w-100"></div><div class="col">
 <div class="container py-3">
   <div class="card">
     <div class="row ">
@@ -298,9 +462,10 @@
         </div>
       </div>
     </div>
-</div>
+</div></div>
 <!--passage3-->
 <!--passage4-->
+<div class="col">
 <div class="container py-3">
   <div class="card">
     <div class="row ">
@@ -318,13 +483,42 @@
         </div>
       </div>
     </div>
-</div>
+</div></div></div>
 <!--passage4-->
 
 
 </div>
 </section>
 
+<footer>
+<hr>
+
+Flexbox can do some pretty awesome things when you mix flex alignments with auto margins. Shown below are three examples of controlling flex items via auto margins:
+          <div class="d-flex flex-row-reverse">
+            <div class="p-2">
+              <img src="{% static 'image/footer1.png' %}"style="width: 50px;height: 50px;">
+            </div>
+            <div class="p-2">
+              <img src="{% static 'image/footer2.png' %}"sty            <div class="p-2">
+              <img src="{% static 'image/footer2.png' %}"style="width: 50px;height: 50px;">
+            </div>
+          </div>
+
+
+</footer>
+</div>
+<script src="{% static 'bar-rating/dist/jquery.barrating.min.js' %}"></script>
+<script type="text/javascript">
+   $(function() {
+      $('.rating').barrating({
+        theme: 'bars-reversed',
+        readonly:true,
+        showValues:false,
+        showSelectedRating:false,
+        initialRating:2.8
+      });
+   });
+</script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -335,26 +529,15 @@ $(document).ready(function(){
   h = $(".carousel-item > img").height();
 
 });
-$('.slider-for').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: '.slider-nav'
-});
+
 $('.slider-nav').slick({
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
-  asNavFor: '.slider-for',
   dots: true,
-  focusOnSelect: true
+  focusOnSelect: true,
+  variableHeight: true
 });
 
-$('a[data-slide]').click(function(e) {
-  e.preventDefault();
-  var slideno = $(this).data('slide');
-  $('.slider-nav').slick('slickGoTo', slideno - 1);
-});
 </script>
 
 
@@ -362,13 +545,12 @@ $('a[data-slide]').click(function(e) {
 <script>
 //contol of autoplay in discount
 $('.autoplay').slick({
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 5,
+  dots: true,
+  focusOnSelect: true,
+  variableHeight: true
 });
 </script>
-</div>
 
 </body>
-</html>

@@ -1,0 +1,65 @@
+.br-theme-bars-reversed .br-widget {
+  height: 17px;
+  white-space: nowrap;
+}
+.br-theme-bars-reversed .br-widget a {
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  float: left;
+  background-color: #C7E5E3;
+  margin: 1px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #50E3C2;
+  text-align: center;
+}
+
+.br-theme-bars-reversed .br-widget .br-current-rating {
+  line-height: 1.3;
+  float: left;
+  padding: 0 20px 0 20px;
+  color: #50E3C2;
+  font-size: 17px;
+  font-weight: 400;
+}
+.br-theme-bars-reversed .br-readonly a {
+  cursor: default;
+}
+.br-theme-bars-reversed .first .br-readonly a.br-active ,
+.br-theme-bars-reversed .first .br-readonly a.br-selected {
+  background-color: #79D18C;
+
+}
+.br-theme-bars-reversed .second .br-readonly a.br-active ,
+.br-theme-bars-reversed .second .br-readonly a.br-selected  {
+  background-color: #77D4CF;
+
+}
+.br-theme-bars-reversed .third .br-readonly a.br-active   ,
+.br-theme-bars-reversed .third .br-readonly a.br-selected {
+  background-color: #799DD3;
+
+}
+.br-theme-bars-reversed .br-readonly .br-current-rating {
+  color: #7cead1;
+}
+@media print {
+  .br-theme-bars-reversed .br-widget a {
+    border: 1px solid #b3b3b3;
+    background: white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .br-theme-bars-reversed .br-widget a.br-active,
+  .br-theme-bars-reversed .br-widget a.br-selected {
+    border: 1px solid black;
+    background: white;
+  }
+  .br-theme-bars-reversed .br-widget .br-current-rating {
+    color: black;
+  }
+}

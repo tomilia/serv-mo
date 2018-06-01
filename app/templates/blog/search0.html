@@ -1,0 +1,155 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>Django Girls blog</title>
+    <meta name="google-signin-client_id" content="806150468926-gen3irjjabqpkvbqr8u6e9j0o6l9agpv.apps.googleusercontent.com">
+    <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cardslider.css' %}">
+    <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
+    <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
+    <script src="{% static 'autocomplete/jquery.easy-autocomplete.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/navbarindex.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrapselect/dist/css/bootstrap-select.min.css' %}">
+    <script src="{% static 'css/bootstrapselect/dist/js/bootstrap-select.min.js' %}"></script>
+</head>
+<body>
+  <nav id="section-menu">
+  <ul>
+  </ul>
+</nav>
+  {% include 'blog/bar0.html' %}
+    {% include 'blog/login-modal.html' %}
+        {% include 'blog/signup-modal.html' %}
+<!--upper block start-->
+<div class="container-fluid">
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-2">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-success active">
+        <input type="radio" name="options" id="option1" autocomplete="off">Date</label>
+      <label class="btn btn-light">
+        <input type="radio" name="options" id="option2" autocomplete="off">Number</label>
+      <label class="btn btn-warning">
+        <input type="radio" name="options" id="option3" autocomplete="on">Time</label>
+    </div>
+  </div>
+  <div class="col-6">
+    <!--middle part of part-->
+  </div>
+  <div class="col-3">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" autocomplete="off">List</label>
+      <label class="btn btn-warning">
+        <input type="radio" name="options" id="option2" autocomplete="off">Map</label>
+    </div>
+  </div>
+</div>
+
+<!--upper block end-->
+<hr>
+
+<div class="row">
+  <div class="col-2">
+    <div id="faq" role="tablist" aria-multiselectable="true">
+      <div class="card">
+        <div class="card-header" role="tab" id="questionOne">
+        <h5 class="card-title"><a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="false" aria-controls="answerOne">地點</a></h5>
+        </div>
+        <div id="answerOne" class="collapse" role="tabcard" aria-labelledby="questionOne">
+          <ul class="list-group">
+          <a href="#" li class="list-group-item" id="1">中國</a>
+          <a href="#" li class="list-group-item list-group-item-info" id="2">日本</a>
+          <a href="#" li class="list-group-item" id="3">香港</a>
+          <a href="#" li class="list-group-item list-group-item-info" id="4">英國</a>
+          <a href="#" li class="list-group-item" id="5">美國</a>
+        </ul>
+        </div>
+      </div>
+
+      <div class="card">
+      <div class="card-header" role="tab" id="questionTwo">
+      <h5 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">服務</a></h5>
+      </div>
+      <div id="answerTwo" class="collapse" role="tabcard" aria-labelledby="questionTwo">
+        <ul class="list-group">
+        <a href="#" li class="list-group-item" id="6">推油</a>
+        <a href="#" li class="list-group-item " id="7">拔罐</a>
+        <a href="#" li class="list-group-item" id="8">刮沙</a>
+        <a href="#" li class="list-group-item list-group-item-success" id="9">熱石</a>
+        <a href="#" li class="list-group-item" id="10">水療</a>
+        </ul>
+      </div>
+      </div>
+
+
+
+</div>
+
+
+<script>
+$('.list-group-item').click(function($e){
+   $e.preventDefault();
+var id = $(this).attr('id');
+if($('#'+id).hasClass( 'list-group-item-success'))
+{
+  $('#'+id).removeClass('list-group-item-success');
+}
+else{
+  $('#'+id).addClass('list-group-item-success');
+}
+});
+</script>
+
+</div><!--end of left bar-->
+  <div class="col-10"><span class="border border-danger">
+    <div class="row">
+      <div class="col-2">
+        <h1>Name</h1>
+        <img src="{% static 'image/hp1.png' %}" style="width: 300px;height: 200px">
+        <p>discount 1</p>
+        <p>discount 2</p>
+      </div>
+      <div class="col-7">
+        <br><br>
+        <p>Main:港式 火鍋</p>
+        <p>地址:觀塘成業街15-17號成運工業大廈1樓12-14舖</p>
+      </div>
+    <div class="col-3">
+      <div class="d-flex flex-row-reverse">
+        <div class="p-2">
+          <img src="{% static 'image/footer1.png' %}"style="width: 50px;height: 50px;">
+        </div>
+        <div class="p-2">
+          <img src="{% static 'image/footer2.png' %}"style="width: 50px;height: 50px;">
+        </div>
+      </div>
+        <p>Tel:23382338</p>
+        <p>$$:100-200</p>
+        <button type="button" class="btn btn-primary">Book</button>
+        <br><br><br>
+          <p>All Discount</p>
+      </div>
+      <div>
+      </div>
+    </div>
+  </span></div>
+
+
+</div>
+</div>
+</body>
+</html>

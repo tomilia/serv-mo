@@ -121,3 +121,6 @@ def logout_view(request):
 def index0(request):
         print(request)
         return render(request, 'blog/index0.html')
+def search0(request):
+        print(request)
+        return render(request, 'blog/search0.html')
