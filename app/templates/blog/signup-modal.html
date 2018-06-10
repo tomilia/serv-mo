@@ -125,7 +125,8 @@
 
 
   <div class="email-sign" style="display:none;">
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" @submit="checkSForm" id="emailreg">
+      {%csrf_token%}
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
@@ -134,44 +135,41 @@
 			<div class="panel panel-primary">
 				<div class="panel-body">
           <div class="container">
-						<div class="form-group">
-							<h2 style="text-align:center;">帳號注冊  </h2>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupName">用戶名稱</label>
-							<input id="signupName" type="text" maxlength="50" class="form-control">
-						</div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-              <label class="control-label" for="signupPassword">密碼</label>
-              <input id="signupPassword" type="password" maxlength="25" class="form-control" length="40">
-            </div>
-          </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="form-group">
-              <label class="control-label" for="signupPasswordagain">確認密碼</label>
-              <input id="signupPasswordagain" type="password" maxlength="25" class="form-control">
-            </div>
-          </div>
-        </div>
-						<div class="form-group">
-							<label class="control-label" for="signupEmail">電郵</label>
-							<input id="signupEmail" type="email" maxlength="50" class="form-control">
-						</div>
-            <div class="custom-control custom-checkbox mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-              <label class="custom-control-label" for="customControlAutosizing"><p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p></label>
-            </div>
 
-						<div class="form-group">
-							<button id="signupSubmit" type="submit" class="btn btn-info btn-block">Create your account</button>
-						</div>
+              <span v-html="messagc"></span>
+
+            </div>
+            {%for non_field_error in sform.non_field.errors%}
+              <p class="help is-danger">{{non_field_error}}</p>
+            {% endfor %}
+            {% for field in sform %}
+             <div class="form-group">
+                <label for="{{field.id_for_label}}" class="label">{{field.label}}</label>
+                <div @keyup.enter="Login" class="fieldx">{{field}}</div>
+                <style>.fieldx input {width: 100%;}</style>
+                {% if field.help_text%}
+                  <p class="help">{{field.help_text}}</p>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p class="is-danger">{{error}}</p>
+                {% endfor %}
+              </div>
+              {%endfor%}
 
 
-						<hr>
-						<p></p>Already have an account? <a href="#">Sign in</a></p>
+             <hr/>
+             <p></p>
+                 <div class="custom-control custom-checkbox mr-sm-2">
+         <input type="checkbox" class="custom-control-input" id="customControlAutosizing" required>
+         <label class="custom-control-label" for="customControlAutosizing"><p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p></label>
+       </div>
+       <div class="form-group">
+   <button id="signupSubmit" type="submit" class="btn btn-success btn-block">立即注冊!</button>
+ </div>
+
           </div>
+
 				</div>
 			</div>
 		</div>
@@ -188,7 +186,42 @@
 -->
 
 
+<script >
 
+
+var app2 = new Vue({
+
+  el: '#emailreg',
+  data: {
+    messagc: '',
+    username:null,
+    password:null
+
+  },
+  methods:{
+    checkSForm:function(e) {
+            let self=this;
+      this.errors = [];
+if(e) e.preventDefault();
+
+      $.ajax({
+            url: '/signup/', //this is the submit URL
+            type: 'POST', //or POST
+            data: $('#emailreg').serialize(),
+            success: function(data){
+              alert(data);
+              location.reload();
+            },
+            error:  function(data){
+                 alert(JSON.stringify(data));
+            }
+        });
+        }
+  },
+  delimiters: ['${', '}']
+});
+
+</script>
 
 <script>
 function changemail(){

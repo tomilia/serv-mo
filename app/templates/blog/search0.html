@@ -2,27 +2,61 @@
 <html>
 <head>
     <title>Django Girls blog</title>
-    <meta name="google-signin-client_id" content="806150468926-gen3irjjabqpkvbqr8u6e9j0o6l9agpv.apps.googleusercontent.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link rel="stylesheet" href="{% static 'css/cardslider.css' %}">
     <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
     <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
     <script src="{% static 'autocomplete/jquery.easy-autocomplete.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/navbarindex.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrapselect/dist/css/bootstrap-select.min.css' %}">
-    <script src="{% static 'css/bootstrapselect/dist/js/bootstrap-select.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+    <!--<link rel="stylesheet" href="{% static 'css/search.css' %}">-->
+
+    <link rel="stylesheet" href="{% static 'bar-rating/dist/themes/bars_reversed.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    *{
+      font-family: 'Noto Sans TC' !important;
+      font-weight:400;
+      font-size:18px;
+    }
+    .item a{
+      color:#6b6b6b !important;
+    }
+    .item .active{
+      color:#3F729B !important;
+    }
+
+    .pagination a {
+        margin: 0 4px;
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        /* 0 is for top and bottom. Feel free to change it */
+    }
+    .pagination a {
+        margin: 0 4px;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        /* 0 is for top and bottom. Feel free to change it */
+    }
+    .pagination .active a {
+        background-color: #0099CC !important;
+        border-color:#0099CC !important;
+        /* 0 is for top and bottom. Feel free to change it */
+    }
+    </style>
 </head>
 <body>
   <nav id="section-menu">
@@ -32,64 +66,51 @@
   {% include 'blog/bar0.html' %}
     {% include 'blog/login-modal.html' %}
         {% include 'blog/signup-modal.html' %}
-<!--upper block start-->
+<style>
+
+  .container-fluid {
+      padding-right:0;
+      padding-left:0;
+      margin-right:auto;
+      margin-left:auto
+   }
+
+
+</style>
 <div class="container-fluid">
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-2">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-success active">
-        <input type="radio" name="options" id="option1" autocomplete="off">Date</label>
-      <label class="btn btn-light">
-        <input type="radio" name="options" id="option2" autocomplete="off">Number</label>
-      <label class="btn btn-warning">
-        <input type="radio" name="options" id="option3" autocomplete="on">Time</label>
-    </div>
-  </div>
-  <div class="col-6">
-    <!--middle part of part-->
-  </div>
-  <div class="col-3">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-primary active">
-        <input type="radio" name="options" id="option1" autocomplete="off">List</label>
-      <label class="btn btn-warning">
-        <input type="radio" name="options" id="option2" autocomplete="off">Map</label>
-    </div>
-  </div>
-</div>
 
 <!--upper block end-->
 <hr>
+<div id="app-7">
+<div class="row" >
 
-<div class="row">
-  <div class="col-2">
-    <div id="faq" role="tablist" aria-multiselectable="true">
-      <div class="card">
+  <div class="col-md-3" >
+
+    <div id="faq" role="tablist" aria-multiselectable="true" style="margin-top:20px;">
+      <div class="card"><a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="false" aria-controls="answerOne" id="focusmeplease">
         <div class="card-header" role="tab" id="questionOne">
-        <h5 class="card-title"><a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="false" aria-controls="answerOne">地點</a></h5>
-        </div>
-        <div id="answerOne" class="collapse" role="tabcard" aria-labelledby="questionOne">
+        <h5 class="card-title">地點</h5>
+        </div></a>
+        <div id="answerOne" class="collapse show" role="tabcard" aria-labelledby="questionOne">
           <ul class="list-group">
-          <a href="#" li class="list-group-item" id="1">中國</a>
-          <a href="#" li class="list-group-item list-group-item-info" id="2">日本</a>
-          <a href="#" li class="list-group-item" id="3">香港</a>
-          <a href="#" li class="list-group-item list-group-item-info" id="4">英國</a>
-          <a href="#" li class="list-group-item" id="5">美國</a>
+          {%for you in me%}
+          <a @click='loc_handler("district","{{you.keyx}}")' :class="{ 'active': checklocpick('{{you.keyx}}')}" li class="list-group-item" id="{{you.id}}">{{you.name}}</a>
+            {%endfor%}
         </ul>
         </div>
       </div>
 
       <div class="card">
+      <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
       <div class="card-header" role="tab" id="questionTwo">
-      <h5 class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">服務</a></h5>
-      </div>
-      <div id="answerTwo" class="collapse" role="tabcard" aria-labelledby="questionTwo">
+      <h5 class="card-title">服務</h5>
+      </div></a>
+      <div id="answerTwo" class="collapse show" role="tabcard" aria-labelledby="questionTwo">
         <ul class="list-group">
         <a href="#" li class="list-group-item" id="6">推油</a>
         <a href="#" li class="list-group-item " id="7">拔罐</a>
         <a href="#" li class="list-group-item" id="8">刮沙</a>
-        <a href="#" li class="list-group-item list-group-item-success" id="9">熱石</a>
+        <a href="#" li class="list-group-item" id="9">熱石</a>
         <a href="#" li class="list-group-item" id="10">水療</a>
         </ul>
       </div>
@@ -100,56 +121,198 @@
 </div>
 
 
-<script>
-$('.list-group-item').click(function($e){
-   $e.preventDefault();
-var id = $(this).attr('id');
-if($('#'+id).hasClass( 'list-group-item-success'))
-{
-  $('#'+id).removeClass('list-group-item-success');
-}
-else{
-  $('#'+id).addClass('list-group-item-success');
-}
-});
-</script>
+
 
 </div><!--end of left bar-->
-  <div class="col-10"><span class="border border-danger">
-    <div class="row">
-      <div class="col-2">
-        <h1>Name</h1>
-        <img src="{% static 'image/hp1.png' %}" style="width: 300px;height: 200px">
-        <p>discount 1</p>
-        <p>discount 2</p>
-      </div>
-      <div class="col-7">
-        <br><br>
-        <p>Main:港式 火鍋</p>
-        <p>地址:觀塘成業街15-17號成運工業大廈1樓12-14舖</p>
-      </div>
-    <div class="col-3">
-      <div class="d-flex flex-row-reverse">
-        <div class="p-2">
-          <img src="{% static 'image/footer1.png' %}"style="width: 50px;height: 50px;">
+  <div class="col-md-8" >
+
+
+    <div style="margin-top:20px;">
+    <div class="ui buttons" style="float:right;">
+      <a class="ui  primary button " href='/search0/map'><i class="fas fa-map"></i>&nbsp;地圖模式</a>
+    </div>
+    <div class="pag" style="display:inline">
+      <div v-if="foodist != ''">
+      <nav aria-label="Page navigation example" >
+        <ul class="pagination ">
+      <div v-if="hasPrev()">
+          <li class="page-item" >
+            <a class="page-link"  aria-label="Previous" @click='filter("page",foodist[0].number-1)'>
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
         </div>
-        <div class="p-2">
-          <img src="{% static 'image/footer2.png' %}"style="width: 50px;height: 50px;">
+          <div v-for="i in foodist[0].count ">
+          <div v-if="i == foodist[0].number ">
+            <li class="page-item active"><a class="page-link">${i}</a></li>
+          </div>
+            <div  v-else>
+              <li class="page-item"><a class="page-link" @click='filter("page",i)'>${i}</a></li>
+            </div>
+          </div>
+            <div v-if="hasNext()">
+          <li class="page-item">
+            <a class="page-link" @click='filter("page",foodist[0].number+1)' aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+
         </div>
+
+        </ul>
+
+      </nav>
+    </div>
+      <div v-else>
+        冇野睇
       </div>
-        <p>Tel:23382338</p>
-        <p>$$:100-200</p>
-        <button type="button" class="btn btn-primary">Book</button>
-        <br><br><br>
-          <p>All Discount</p>
-      </div>
-      <div>
+
+    </div>
+  </div>
+    <div class="ui three item menu" >
+  <a class="item" :class="{ 'active': 'default' === selection }" @click='navsorthandler("default","sort","default")'> <i class="far fa-lightbulb"></i>&nbsp;默認排序</a>
+  <a class="item" :class="{ 'active': 'popular' === selection }" @click='navsorthandler("popular","sort","popular")'><i class="far fa-smile"></i>&nbsp;人氣排序</a>
+  <a class="item" :class="{ 'active': 'price' === selection }" @click='navsorthandler("price","sort","price")'><i class="fas fa-dollar-sign"></i>&nbsp;價格排序</a>
+</div>
+      <div v-for="food in foodist">
+        <div class="card rounded" style="margin-top:20px; border-radius:10px;background-color:#fff !important;">
+      <div class="d-flex flex-column bg-light border" >
+        <div class="d-flex">
+        <div class="mr-auto p-2"><h2>${food.CHtitle}</h2></div>
+  <div class="p-2">
+    <div class="ui animated red button" tabindex="0">
+      <div class="visible content">  <i class="fas fa-heart" style="margin-right:-5px;"></i></div>
+      <div class="hidden content">
+        <h4>收藏</h4>
       </div>
     </div>
-  </span></div>
+
+</div>
+
+</div>
+      </div>
+        <div class="d-flex flex-row rounded border bg-light" >
+                <div class="p-1 w-50" >
+                    <img src="https://www.w3schools.com/w3css/img_lights.jpg" class="img-thumbnail border-0" />
+                </div>
+                <div class="pl-3 pt-2 pr-2 pb-2 w-50 border-left" >
+                        <div><span class="" style="font-size: 18px;color:#6b6b6b;font-weight:100;">服務：
+                {%for x in '123123'%}
+                <span class="badge badge-pill" style="background: #e2e2e2;font-size: 14px;color:#6b6b6b;font-weight: 100;margin:4px;">求其</span>
+                {% endfor %}
+              </span></div>
+
+
+
+                        <div style="margin-top:10px;"><span class="" >地址：</span><span>${food.full_address}</span></div>
+                        <ul class="m-0 float-left" style="list-style: none; margin:0; padding: 0">
+                            <li><i class="fab fa-facebook-square"></i> Facebook</li>
+                            <li><i class="fab fa-twitter-square"></i> Twitter</li>
+                        </ul>
+                </div>
+        <div class="pl-3 pt-2 pr-2 pb-2 w-50" >
+            <h5 >電話：${food.telephone}</h5>
+            <h5 >價錢：</h5>
+            <div class="d-flex flex-row">
+
+              <div class="p-0" style="font-weight:100;font-size:14px;line-height:1.25;"><div>服務</div><div>環境</div><div >價錢</div></div>
+              <div class="p-1">  <div class="br-wrapper br-theme-bars-reversed">
+                  <div class="first">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="second">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                  <div class="third">
+                  <select class="rating" > <!-- now hidden -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                </div></div>
+            </div>
+      </div>
+            </div>
+            <div v-for="i in extrax" >
+              <div v-if="get(i,food)">
+                <div class="d-flex flex-column bg-light">
+       <div class="container-fluid">
+       <div class="d-flex">
+       <div class="mr-auto p-2"><span class="text-secondary" style="font-weight:100;font-size:20px;">${i.title}</span></div>
+         <div class="p-2"><span class="text-secondary" style="font-weight:100;font-size:20px;">${i.discount_price}</span></div>
+ <div class="p-2"><button type="button" class="btn btn-sm btn-success"><i class="fas fa-check"></i>&nbsp;立即預訂</button></div>
+</div>
+</div>
+     </div>
+              </div>
+            </div>
+
+    </div>
+
+  </div>
+
+      </div>
+
+
+
+
+
+
+      </div>
+
+    </div>
 
 
 </div>
+   </div>
 </div>
+<script src="{% static 'bar-rating/dist/jquery.barrating.min.js' %}"></script>
+<script type="text/javascript">
+   $(function() {
+      $('.rating').barrating({
+        theme: 'bars-reversed',
+        readonly:true,
+        showValues:false,
+        showSelectedRating:false,
+        initialRating:2.8
+      });
+   });
+</script>
 </body>
+<script src="{% static 'export_module/search_module.js' %}"></script>
+
+<script>
+window.addEventListener('popstate', e => {
+  location.href=window.location.href;
+   }, false)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!--map script end-->
 </html>

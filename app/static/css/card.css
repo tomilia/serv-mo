@@ -84,3 +84,61 @@
   text-transform: uppercase;
 
 }
+/*hot location*/
+
+
+div.transbox {
+  background-color: #ffffff;
+  border: 0px solid #ffffff;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+/**/
+.square {
+    float:left;
+    position: relative;
+    width: 22%;
+    padding-bottom : 22%; /* = width for a 1:1 aspect ratio */
+    margin:1.3%;
+    background-color:#1E1E1E;
+    overflow:hidden;
+    text-align:center;
+    font-size: 20px;
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding: 5%;
+}
+.table{
+    display:table;
+    width:100%;
+    height:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+
+}
+.content .rs{
+    width:auto;
+    height:auto;
+    max-height:90%;
+    max-width:100%;
+
+}
+/*  For responsive images as background */
+
+.bg{
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    color:#fff;
+}
+
+.img2{
+    background-image: url('https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg');
+}

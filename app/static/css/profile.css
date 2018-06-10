@@ -1,0 +1,13 @@
+.ui .form > .field label,
+.ui .form >.fields> .field label{
+  font-weight:300 !important;
+
+  color:#6b6b6b !important;
+}
+/* style="background-color: black;*/
+H2{
+  font-family: 'Noto Sans TC' !important;
+  font-weight:100 !important;
+  color:#6b6b6b !important;
+  padding-left: 2% !important;
+}

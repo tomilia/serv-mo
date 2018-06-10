@@ -1,0 +1,218 @@
+{% load staticfiles %}
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Girls blog</title>
+    <meta name="google-signin-client_id" content="806150468926-gen3irjjabqpkvbqr8u6e9j0o6l9agpv.apps.googleusercontent.com">
+    <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <!--<script src="{% static 'js/sidebar.js' %}"></script>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cardslider.css' %}">
+    <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.css' %}">
+    <link rel="stylesheet" href="{% static 'autocomplete/easy-autocomplete.themes.css' %}">
+    <script src="{% static 'autocomplete/jquery.easy-autocomplete.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/navbarindex.css' %}">
+        <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrapselect/dist/css/bootstrap-select.min.css' %}">
+    <script src="{% static 'css/bootstrapselect/dist/js/bootstrap-select.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bar-rating/dist/themes/bars_reversed.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+    body{
+      font-weight: 100;
+    }
+    </style>
+<!--map start-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>地址解析</title>
+<style type="text/css">
+*{
+    margin:0px;
+    padding:0px;
+}
+body, button, input, select, textarea {
+    font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+}
+p{
+    width:603px;
+    padding-top:3px;
+    margin-top:10px;
+    overflow:hidden;
+}
+input #address{
+	width:300px;
+}
+#container {
+   min-width:603px;
+   min-height:767px;
+}
+</style>
+<!--map end-->
+</head>
+<body onload="init()">
+      <!--start of top part-->
+
+    <div class="pusher">
+      <div class="ui menu asd borderless" >
+        <a class="item openbtn">
+          <i class="icon content"></i>
+        </a>
+        <div class="input-group" style="margin-top:0px;">
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+        <div class="right menu">
+
+          <div class="item">
+            <div class="ui primary button">Sign Up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+          <div id="map" style="height:93%; width:100%"></div>
+      <!--end of top part-->
+
+<!--start of result box-->
+<ul class="dropdown-menu scrollable-menu" role="menu" style="z-index=999;">
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+     <li><a href="#">Something else here</a></li>
+     <li><a href="#">Action</a></li>
+     ..
+     <li><a href="#">Action</a></li>
+     <li><a href="#">Another action</a></li>
+ </ul>
+<!--start of inner expend tag-->
+
+
+
+
+<!--end of inner expend tag-->
+
+
+
+
+      <!--start of map-->
+
+      <!--end of map-->
+
+
+
+
+</body>
+<!--map script start-->
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+
+
+
+<script>
+    var geocoder,map,marker = null;
+    var searchService, markers = [];
+    var latlngBounds = new qq.maps.LatLngBounds();
+    var init = function() {
+    var center = new qq.maps.LatLng(22.5459924,114.1170997);
+    map = new qq.maps.Map(document.getElementById('map'),{
+        center: center,
+        zoom: 17,
+        mapTypeControlOptions:{
+          mapTypeIds:[]
+        }
+    });
+
+///*
+//设置Poi检索服务，用于本地检索、周边检索
+new qq.maps.Circle({
+    center:new qq.maps.LatLng(39.936273,116.44004334),
+    radius: 2000,
+    map: map
+});
+var latlngBounds = new qq.maps.LatLngBounds();
+//调用Poi检索类
+searchService = new qq.maps.SearchService({
+    complete : function(results){
+        var pois = results.detail.pois;
+        for(var i = 0,l = pois.length;i < l; i++){
+            var poi = pois[i];
+            latlngBounds.extend(poi.latLng);
+            var marker = new qq.maps.Marker({
+                map:map,
+                position: poi.latLng
+            });
+
+            marker.setTitle(i+1);
+
+            markers.push(marker);
+        }
+        map.fitBounds(latlngBounds);
+
+    }
+});
+qq.maps.event.addListener(map, 'mouseup', function() {
+    alert('您点击了地图.');
+});
+    var keyword = document.getElementById("keyword").value;
+region = new qq.maps.LatLng(39.936273,116.44004334);
+
+searchService.setPageCapacity(5);
+searchService.searchNearBy(keyword, region, 2000);
+
+}
+function searchKeyword() {
+
+//根据中心点坐标、半径和关键字进行周边检索。
+}
+
+
+
+</script>
+<!--map script end-->
+
+<style>
+.center-div
+{
+
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom:0;
+
+  width: 300px;
+  height: 400px;
+  background-color: #eee;
+  border-radius: 3px;
+  z-index: 998;
+}
+</style>
+<!--script for expand-->
+<script>
+
+</script>
+<!--script for collaspe-->
+<style>
+      .innerButton
+{
+
+  position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom:0;
+    margin-right:330px;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-r

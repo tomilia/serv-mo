@@ -6,48 +6,7 @@
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
 </div>
 <div class="p-2 myflex" >
-  <script>
-
-    window.fbAsyncInit = function() {
-
-      FB.init({
-        appId      : '1632310266837891',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.0'
-      });
-      FB.getLoginStatus(function(response) {
-
-      statusChangeCallback(response);
-      });
-
-    };
-
-    (function(d, s, id){
-
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-    function statusChangeCallback(response){
-
-      if(response.status==='connected'){
-        alert('csacpo');
-      }
-      else {
-        alert('csacposs');
-      }
-    }
-    function checkLoginState(){
-      FB.getLoginStatus(
-        function(response){
-          statusChangeCallback(response);
-        }
-      );
-    }
-  </script>
+  
   <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
   </fb:login-button>
 </div>

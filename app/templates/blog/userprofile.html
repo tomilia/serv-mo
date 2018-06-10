@@ -1,0 +1,366 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <meta name="google-signin-client_id" content="806150468926-gen3irjjabqpkvbqr8u6e9j0o6l9agpv.apps.googleusercontent.com">
+        <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet'>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/scrollspy.css' %}">
+        <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
+
+    </head>
+<body data-spy="scroll" data-target="#scroll-spy">
+  <nav id="section-menu">
+  <ul>
+  </ul>
+</nav>
+
+
+<div class="ui bottom fixed sticky" style="right:50px;bottom:15px">
+    <div class="ui blue button" tabindex="0">Done</div>
+    <div class="ui red button" tabindex="0">Reset</div>
+</div>
+
+<section id="section-one" class="section scroll-item" title="One">
+  <div class="inner">
+
+    <div class="ui raised teal segment centered container">
+      <h2 class="ui left floated header" style="padding:1% 0">帳戶資料</h2>
+      <div class="ui clearing divider"></div>
+      <div class="container" style="padding:2% 5% 5%">
+      <div class="ui grid">
+
+        <div class="eleven wide column">
+
+            <div class="ui large form">
+
+                <div class="field">
+
+                  <label><i class="envelope icon"></i>Email</label>
+                <input type="text" placeholder="Username" value="{{user.email}}">
+              </div>
+
+
+                      <div class="fields">
+                        <div class="field">
+
+                          <label>  <i class="phone icon"></i>Mobile</label>
+                            <div class="ui compact selection dropdown">
+                              <input type="hidden" name="Area">
+                              <i class="dropdown icon"></i>
+                              <div class="default text">Code</div>
+                              <div class="menu">
+                                <div class="item" data-value="HK">+852</div>
+                                <div class="item" data-value="MAU">+866</div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                          <label>&nbsp;</label>
+                        <input type="text" placeholder="eg.88888888" value="{{user.phone_num}}">
+                      </div>
+                </div>
+
+
+                  <div class="six wide field">
+                    <label>Old Password</label>
+                    <input type="text" placeholder="old,if no please leave blank">
+                  </div>
+
+                  <div class="six wide field">
+                      <label>New Password</label>
+                    <input type="text" placeholder="new">
+                  </div>
+
+                  <div class="six wide field">
+                    <label>Re-enter Password</label>
+                    <input type="text" placeholder="Re-enter">
+                  </div>
+
+          </div>
+          </div>
+
+          <div class="five wide column" style="">
+            <div class="row" style="">
+            <img class="ui rounded bordered image centered" src="{% static 'image/pro2.jpg' %}">
+
+            <button class="fluid ui labeled icon orange right floated button" >
+              <i class="add icon"></i>
+              Edit Icon
+            </button>
+          </div>
+          </div>
+
+      </div>
+    </div>
+      </div>
+
+
+</div>
+</section>
+<div  style="height:10%"></div>
+<section id="section-two" class="section scroll-item" title="Two">
+  <div class="inner">
+
+    <div class="ui raised piled compact segment centered container"  style="max-width:60%!important">
+      <a class="ui teal huge tag label"style="margin-left:-20px;" >個人資料</a>
+        <div class="container" style="max-width:70%!important;margin:20px 200px!important">
+
+          <div class="ui form">
+
+
+              <div class="fields">
+                <div class="field">
+                  <label>First Name</label>
+                  <input type="text" placeholder="First Name" value="{{user.first_name}}">
+                </div>
+                <div class="wide field">
+                </div>
+                <div class="field">
+                  <label>Last name</label>
+                  <input type="text" placeholder="Last Name" value="{{user.second_name}}">
+                </div>
+              </div>
+
+
+            <div class="twelve wide field">
+              <label>Gender</label>
+              <div class="ui fluid selection dropdown">
+                <input type="hidden" name="gender">
+                <i class="dropdown icon"></i>
+                <div class="default text">Gender</div>
+                <div class="menu">
+                  <div class="item" data-value="1">Male</div>
+                  <div class="item" data-value="0">Female</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="six wide field">
+              <label>Birthday</label>
+              <div class="ui calendar" id="example13">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" placeholder="Date">
+                </div>
+              </div>
+            </div>
+
+
+
+              <div class="six wide field">
+                  <label><i class="address card icon"></i>Address</label>
+              <div class="ui fluid selection dropdown">
+                <input type="hidden" name="Area">
+                <i class="dropdown icon"></i>
+                <div class="default text">Area</div>
+                <div class="menu">
+                  <div class="item" data-value="HK">HK</div>
+                  <div class="item" data-value="MAU">MACAU</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <input type="text" placeholder="address" value="">
+            </div>
+
+          </div>
+
+    </div>
+  </div>
+
+    </div>
+</section>
+<div  style="height:10%"></div>
+<section id="section-three" class="section scroll-item" title="Three">
+  <div class="inner">
+
+    <div class="ui raised piled compact segment centered container"  style="max-width:60%!important">
+      <a class="ui teal huge tag label"style="margin-left:-20px;" >訂閱項目</a>
+        <div class="container" style="max-width:70%!important;margin:20px 200px!important">
+
+
+
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>訂閱電子郵件</label>
+        </div><br><br>
+
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>訂閱電話短訊</label>
+        </div><br><br>
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>訂閱電子郵件</label>
+        </div><br><br>
+        <div class="ui disabled checked checkbox">
+          <input type="checkbox" checked="" disabled="disabled">
+          <label>訂閱電子郵件</label>
+        </div><br><br>
+        <div class="ui disabled checked checkbox">
+          <input type="checkbox" checked="" disabled="disabled">
+          <label>訂閱電子郵件</label>
+        </div><br><br>
+        <div class="ui disabled checked checkbox">
+          <input type="checkbox" checked="" disabled="disabled">
+          <label>訂閱電子郵件</label>
+        </div><br><br>
+
+
+    </div>
+  </div>
+    </div>
+</section>
+<br>
+
+</body>
+
+<script>
+
+$('.ui.dropdown').dropdown();
+
+              var today = new Date();
+              $('#example13').calendar({
+                type:'date',
+                on: 'hover',
+                popupOptions: {
+                  position: 'right center'
+                },
+                maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+                monthFirst: false,
+                formatter: {
+                  date: function (date, settings) {
+                    if (!date) return '';
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    return day + '/' + month + '/' + year;
+                  }
+                }
+              });
+
+
+jQuery(function($) {
+var html = $('html');
+var viewport = $(window);
+var viewportHeight = viewport.height();
+var scrollMenu = $('#section-menu');
+var timeout = null;
+
+function menuFreeze() {
+if (timeout !== null) {
+scrollMenu.removeClass('freeze');
+clearTimeout(timeout);
+}
+timeout = setTimeout(function() {
+scrollMenu.addClass('freeze');
+}, 2000);
+}
+scrollMenu.mouseover(menuFreeze);
+/* ==========================================================================
+025
+   Build the Scroll Menu based on Sections .scroll-item
+026
+   ========================================================================== */
+var sectionsHeight = {}, viewportheight, i = 0;
+var scrollItem = $('.scroll-item');
+var bannerHeight;
+function sectionListen() {
+viewportHeight = viewport.height();
+bannerHeight = (viewportHeight);
+
+scrollItem.each(function(){
+sectionsHeight[this.title] = $(this).offset().top;
+});
+}
+sectionListen();
+viewport.resize(sectionListen);
+viewport.bind('orientationchange', function() {
+sectionListen();
+});
+var count = 0;
+scrollItem.each(function(){
+var anchor = $(this).attr('id');
+var title = $(this).attr('title');
+count ++;
+$('#section-menu ul').append('<li><a id="nav_' + title + '" href="#'+anchor + '"><span>' + count + '</span> ' + title + '</a></li>');
+
+});
+
+function menuListen() {
+var pos = $(this).scrollTop();
+for(i in sectionsHeight){
+  if(pos<sectionsHeight['One'])
+  {
+    $('#section-menu a').removeClass('active');
+    $('#section-menu a#nav_' + 'One').addClass('active');;
+    var newHash = '#' + $('.scroll-item[title="' + 'One' + '"]').attr('id');
+  }
+if(sectionsHeight[i] < pos+15) {
+
+$('#section-menu a').removeClass('active');
+$('#section-menu a#nav_' + i).addClass('active');;
+
+} else {
+$('#section-menu a#nav_' + i).removeClass('active');
+if (pos < viewportHeight - 72) {
+
+}
+}
+}
+}
+scrollMenu.css('margin-top', scrollMenu.height() / 2 * -1);
+/* ==========================================================================
+078
+   Smooth Scroll for Anchor Links and URL refresh
+079
+   ========================================================================== */
+
+
+
+
+
+
+scrollMenu.find('a').click(function() {
+var href = $.attr(this, 'href');
+
+$('html, body').animate({
+scrollTop: $(href).offset().top
+}, 500);
+return false;
+});
+/* ==========================================================================
+093
+   Fire functions on Scroll Event
+094
+   ========================================================================== */
+function scrollHandler() {
+menuListen();
+menuFreeze();
+}
+scrollHandler();
+viewport.on('scroll', function() {
+scrollHandler();
+//window.request<a href="https://www.jqueryscript.net/animation/">Animation</a>Frame(scrollHandler);
+});
+});
+
+
+</script>

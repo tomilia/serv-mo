@@ -9,6 +9,8 @@
         <option data-content='<i class="fa fa-globe" aria-hidden="true"></i> 繁體中文'>繁體中文</option>
       <option  data-content='<i class="fa fa-globe" aria-hidden="true"></i> English'>English</option>
     </select>
+    {% if not user.is_authenticated %}
+
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -19,7 +21,32 @@
       </li>
 
 
+
     </ul>
+      {% else %}
+      <ul class="navbar-nav ml-auto list-inline">
+        <li class="nav-item">
+        {% if user.socialaccount_set.all.0.extra_data %}
+        {{ user.socialaccount_set.all.0.extra_data.name}}
+
+        {% elif user.phone_num %}
+        {{ user.phone_num }}
+        {% else %}
+        {{ user.email }}
+        {%endif%}
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'profile' %}" >個人資料</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'account_logout' %}" >登出</a>
+        </li>
+
+
+
+      </ul>
+
+        {% endif %}
   </div>
 </nav>
 
@@ -30,59 +57,56 @@
   <a class="navbar-brand" href="#">
    <img src="{% static 'image/icon.png' %}" alt="Logo" style="width:40px;">
  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-auto order-0 order-md-1">
 
       <li class="mx-auto">
       <div class="input-group ">
-      <input type="text" class="form-control home-search" id="example-ajax-post" aria-label="Text input with dropdown button" style="background-color:#eeeeee;">
+        <form action ="/search0/" class="form-inline" method="get">
+      <input type="text" class="form-control home-search" id="example-ajax-post" aria-label="Text input with dropdown button" name="q" style="background-color:#eeeeee;">
       <script type="text/javascript">
             var options = {
-
               url: function(phrase) {
-                return "/search/";
-              },
+               return "/search0/";
+             },
 
-              ajaxSettings: {
-                dataType: "json",
-                method: "POST",
-                data: {
-                  dataType: "json"
-                }
-              },
+             ajaxSettings: {
+               dataType: "json",
+               method: "POST",
+               data: {
+                 dataType: "json"
+               }
+             },
 
-              preparePostData: function(data) {
-                data.phrase = $("#example-ajax-post").val();
-                data.csrfmiddlewaretoken = '{{csrf_token}}'
-                return data;
-              },
-              listLocation:"message",
-              getValue: "title",
-              template: {
-                type: "description",
-                fields: {
-                  description: "author"
-                }
-              },
-              list: {
-                    onClickEvent: function() {
-                         alert("Click !");
-                         }
-                    },
+             preparePostData: function(data) {
+               data.phrase = $("#example-ajax-post").val();
+               data.csrfmiddlewaretoken = '{{csrf_token}}'
+               return data;
+             },
+             listLocation:"message",
+             getValue: "CHtitle",
+             template: {
+               type: "description",
+               fields: {
+                 description: "full_address"
+               }
+             }
             };
 
 
             $("#example-ajax-post").easyAutocomplete(options);
       </script>
-
-      <div class="input-group-append">
-        <button class="btn " type="button"  style="background-color:#77d4cf; color:#eeeeee;"><i class="fa fa-search" aria-hidden="true"></i>
-        搜尋</button>
-      </div>
+      <script type="text/javascript">
+      function formSubmit()
+        {
+        document.getElementById("myForm").submit()
+        }
+      </script>
+      <button type="submit" value="submit" class="btn btn-default">Submit</button>
+    </form>
+    </div>
     </div>
 
   </li>
